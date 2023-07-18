@@ -22,18 +22,22 @@ function Login() {
     const passwordPattern = /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,10}$/
     if (!values.email) {
         errors.email = '*Required'
+        setDisable(true)
     }
     else if (!emailPattern.test(values.email)) {
         errors.email = '*Invalid Email ID'
+        setDisable(true)
     }
     else {
         setDisable(false)
     }
     if (!values.password) {
         errors.password = '*Required'
+        setDisable(true)
     }
     else if (!passwordPattern.test(values.password)) {
         errors.password = '*Invalid Password'
+        setDisable(true)
     }
     else {
         setDisable(false)

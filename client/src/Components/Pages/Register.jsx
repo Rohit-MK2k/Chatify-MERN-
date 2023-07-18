@@ -21,42 +21,51 @@ function Register() {
     const errors = {}
     if (!values.firstName) {
       errors.firstName = '*Required'
+      setDisable(true)
     }
     else {
       setDisable(false)
     }
     if (!values.lastName) {
       errors.lastName = '*Required'
+      setDisable(true)
     }
     else {
       setDisable(false)
     }
     if (!values.email) {
       errors.email = '*Required'
+      setDisable(true)
     }
     else if (!emailPattern.test(values.email)) {
       errors.email = '*Invalid Email ID'
+      setDisable(true)
     }
     else {
       setDisable(false)
     }
     if (!values.password) {
       errors.password = '*Required'
+      setDisable(true)
     }
     else if (!passwordPattern.test(values.password)) {
       errors.password = '*Invalid Password'
+      setDisable(true)
     }
     else {
       setDisable(false)
     }
     if (!values.conPassword) {
       errors.conPassword = '*Required'
+      setDisable(true)
     }
     else if (!passwordPattern.test(values.conPassword)) {
       errors.conPassword = '*Invalid Password'
+      setDisable(true)
     }
     else if (values.password !== values.conPassword) {
       errors.conPassword = '*Password not matching'
+      setDisable(true)
     }
     else {
       setDisable(false)
@@ -76,7 +85,7 @@ function Register() {
       profilePic: '',
     },
     validate,
-    onSubmit: values => {
+    onSubmit: (values) => {
       console.log(JSON.stringify(values, null, 2))
       console.log(values.profilePic)
     },
